@@ -52,7 +52,7 @@ function App() {
   return (
     <>
       <div className="App">
-        //send handleaddperson as a callback
+        {/* send handleaddperson as a callback */}
         <AddPerson handleFunction={handleAddPerson} />
         <h1>List of People</h1>
         {people.map((person, i) => (
