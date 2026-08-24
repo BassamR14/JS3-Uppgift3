@@ -11,6 +11,8 @@ function Profile({ data }) {
     setAge(age + 1);
   }
 
+  function removePerson() {}
+
   return (
     <>
       <div className="person-div">

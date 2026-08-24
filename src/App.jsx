@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Profile from "./components/Profile";
+import AddPerson from "./components/AddPerson";
 import "./App.css";
 
 function App() {
@@ -36,9 +37,23 @@ function App() {
     },
   ]);
 
+  function handleAddPerson(firstName, lastName, age, hobby) {
+    const newPerson = {
+      firstName,
+      lastName,
+      age,
+      hobby,
+    };
+
+    //Can't mutate state, so use a copy
+    setPeople((people) => [...people, newPerson]);
+  }
+
   return (
     <>
       <div className="App">
+        //send handleaddperson as a callback
+        <AddPerson handleFunction={handleAddPerson} />
         <h1>List of People</h1>
         {people.map((person, i) => (
           <Profile key={i} data={person} />
