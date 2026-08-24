@@ -53,8 +53,8 @@ function AddPerson({ handleFunction }) {
         onChange={addHobby}
       />{" "}
       <br />
-      //handlefunction is a callback function, it needs the values/varialbles
-      that will be saved. Then setfunction("") to clear the input fields
+      {/* handlefunction is a callback function, it needs the values/varialbles
+      that will be saved. Then setfunction("") to clear the input fields */}
       <button
         onClick={() => {
           handleFunction(firstName, lastName, age, hobby);
