@@ -3,9 +3,11 @@ import { useState } from "react";
 function Profile({ data }) {
   const { firstName, lastName, hobby } = data;
   const [show, setShow] = useState(false);
+  //age needs to be re-rendered after it changes so it must have a state
   const [age, setAge] = useState(data.age);
 
   function addOne() {
+    //use setter to change age
     setAge(age + 1);
   }
 
