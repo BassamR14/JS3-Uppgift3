@@ -1,8 +1,13 @@
 import { useState } from "react";
 
 function Profile({ data }) {
-  const { firstName, lastName, age, hobby } = data;
+  const { firstName, lastName, hobby } = data;
   const [show, setShow] = useState(false);
+  const [age, setAge] = useState(data.age);
+
+  function addOne() {
+    setAge(age + 1);
+  }
 
   return (
     <>
@@ -21,10 +26,11 @@ function Profile({ data }) {
         <button
           onClick={() => {
             setShow(!show);
-          }}
-        >
+          }}>
           {show ? "Show Less" : "Show More"}
         </button>
+        <br />
+        <button onClick={addOne}>+1</button>
       </div>
     </>
   );
