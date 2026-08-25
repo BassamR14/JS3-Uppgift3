@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Profile({ data }) {
+function Profile({ data, index, handleRemove }) {
   const { firstName, lastName, hobby } = data;
   const [show, setShow] = useState(false);
   //age needs to be re-rendered after it changes so it must have a state
@@ -11,7 +11,10 @@ function Profile({ data }) {
     setAge(age + 1);
   }
 
-  function removePerson() {}
+  function removePerson() {
+    // cant access setpeople from child Component, use callback function
+    handleRemove(index);
+  }
 
   return (
     <>
@@ -34,7 +37,8 @@ function Profile({ data }) {
           {show ? "Show Less" : "Show More"}
         </button>
         <br />
-        <button onClick={addOne}>+1</button>
+        <button onClick={addOne}>+1</button> <br />
+        <button onClick={removePerson}>Delete</button>
       </div>
     </>
   );

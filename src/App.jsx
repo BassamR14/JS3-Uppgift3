@@ -49,6 +49,10 @@ function App() {
     setPeople((people) => [...people, newPerson]);
   }
 
+  function handleRemovePerson(index) {
+    setPeople((people) => people.filter((_, i) => i !== index));
+  }
+
   return (
     <>
       <div className="App">
@@ -56,7 +60,12 @@ function App() {
         <AddPerson handleFunction={handleAddPerson} />
         <h1>List of People</h1>
         {people.map((person, i) => (
-          <Profile key={i} data={person} />
+          <Profile
+            key={i}
+            data={person}
+            index={i}
+            handleRemove={handleRemovePerson}
+          />
         ))}
       </div>
     </>
